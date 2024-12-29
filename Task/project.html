@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #222;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00c9ff;
+        }
+
+        /* Background Animation */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00c9ff, #92fe9d);
+            clip-path: circle(30% at 10% 20%);
+            z-index: -1;
+            animation: moveBackground 10s infinite alternate ease-in-out;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            clip-path: circle(20% at 90% 70%);
+            z-index: -1;
+            animation: moveBackground 15s infinite alternate ease-in-out reverse;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                clip-path: circle(30% at 10% 20%);
+            }
+            100% {
+                clip-path: circle(50% at 80% 60%);
+            }
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: 320px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .project-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            color: #333;
+        }
+
+        .project-item p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .technologies {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-list">
+                
+                <!-- Project 1 -->
+                <div class="project-item">
+                    <h3>Responsive Portfolio</h3>
+                    <img src="portfolio.jpg" alt="Responsive Portfolio">
+                    <p>Designed and developed a fully responsive portfolio site using HTML, CSS, and JavaScript.</p>
+                    <p class="technologies">Technologies: HTML5, CSS3, JavaScript</p>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-item">
+                    <h3>Data Visualization Dashboard</h3>
+                    <img src="dashboard.jpg" alt="Data Visualization">
+                    <p>A dynamic dashboard for data visualization with real-time charting and filtering.</p>
+                    <p class="technologies">Technologies: React, Chart.js, Node.js</p>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-item">
+                    <h3>E-commerce App</h3>
+                    <img src="ecommerce.jpg" alt="E-commerce App">
+                    <p>Built a modern, mobile-first e-commerce application with payment integration and product management.</p>
+                    <p class="technologies">Technologies: Vue.js, Firebase, Stripe API</p>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-item">
+                    <h3>Weather Forecast App</h3>
+                    <img src="weather.jpg" alt="Weather App">
+                    <p>Developed a weather app that fetches data from the OpenWeather API, featuring geolocation.</p>
+                    <p class="technologies">Technologies: JavaScript, OpenWeather API</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

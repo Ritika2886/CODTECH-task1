@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background-color: #111;
+            color: #fff;
+            perspective: 1000px;  /* 3D space */
+        }
+
+        /* 3D Animated Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff4b1f, #1fddff, #f72585, #7209b7, #00f260);
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: gradientFlow 8s ease infinite;
+            transform-origin: center;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00c9ff;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 6rem 1rem;
+            text-align: center;
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: rotateY(10deg) translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .contact-card p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Map Section */
+        .map {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .map iframe {
+            width: 90%;
+            max-width: 1000px;
+            height: 400px;
+            border-radius: 15px;
+            border: 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            font-size: 1rem;
+            margin-top: 5rem;
+        }
+
+        /* Fade-In Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Background -->
+    <div class="background" id="animated-bg"></div>
+
+    <!-- Header & Navbar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-card">
+                <p>Email: yourname@example.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093706!2d144.95565101576105!3d-37.81732397975148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43a0b476ff%3A0x5045675218cee20!2z44CSMzAwMCBWaWN0b3JpYSwg44K344Kk44Oz44K_44O844Or!5e0!3m2!1sen!2sau!4v1614140989926!5m2!1sen!2sau" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

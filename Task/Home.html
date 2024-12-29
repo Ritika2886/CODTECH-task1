@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #222;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00c9ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #00c9ff, #92fe9d);
+            text-align: center;
+            color: #fff;
+            padding: 4rem 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .text p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        .image img {
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        canvas {
+            width: 350px;
+            height: 350px;
+            display: block;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        main p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <div class="hero-content">
+                <div class="text">
+                    <h1>Welcome to My Portfolio</h1>
+                    <p>Frontend & Backend Developer</p>
+                </div>
+                <div class="image">
+                    <canvas id="3d-model"></canvas>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <p>
+            Hi, I'm a passionate developer specializing in creating user-friendly and efficient web applications.
+            Explore my projects and blog to learn more about my work and interests.
+        </p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Basic Three.js Scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('3d-model'), alpha: true });
+        renderer.setSize(350, 350);
+
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshStandardMaterial({ color: 0x00ff99, metalness: 0.5, roughness: 0.1 });
+        const torusKnot = new THREE.Mesh(geometry, material);
+        scene.add(torusKnot);
+
+        const light = new THREE.AmbientLight(0x404040, 3);
+        scene.add(light);
+
+        const pointLight = new THREE.PointLight(0xffffff, 1);
+        pointLight.position.set(20, 20, 20);
+        scene.add(pointLight);
+
+        camera.position.z = 40;
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            torusKnot.rotation.x += 0.01;
+            torusKnot.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
